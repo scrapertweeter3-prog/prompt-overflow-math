@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>An uncapped reply is a blank check</title>
+</head>
+<body>
+<main>
+<h1>An uncapped reply is a blank check</h1>
+
+<p>Most API bills have a line nobody reads: the output. <a href="https://pastagi.com/">PastAGI</a> cost audits keep finding the same wiring mistake, an agent priced as if the input were the whole bill. Every token a model writes back costs five times what a token in the prompt costs at typical rates, $15 a million against $3, and when max_tokens is left unset the number of tokens it writes is whatever it feels like.</p>
+
+<p>A typical support-agent call makes it concrete. Four thousand prompt tokens at $3 a million is 1.2 cents. A two-hundred-token answer at $15 a million is 0.3 cents. The call lands at 1.5 cents and the writing was only a fifth of it, which is exactly why nobody bothers capping it.</p>
+
+<p>The same call without a cap is a different animal. When the model decides the answer needs twelve hundred tokens, the writing costs 1.8 cents on the same 1.2 cents of prompt. The call lands at 3 cents. Output went from a fifth of the bill to sixty percent of it, and the overrun alone equals the price of an entire typical call.</p>
+
+<p>Across a fleet the drift shows up as a rounding error with a yearly salary. Five thousand calls a day at the typical shape run $75. Let eight percent of them run long at twelve hundred tokens and the day closes at $81. That is $6 a day, $2,190 a year, paid by fewer than one call in ten.</p>
+
+<p>A cap is one request field. Clipping the long tail at five hundred tokens turns a 3-cent call into a 1.95-cent one, drops the day to $76.80, and keeps $1,533 of that $2,190, seventy percent of the overrun for one line of request JSON. Stop sequences close most of what is left. That is the trade <a href="https://pastagi.com/">serving-cost audits</a> keep striking: the model spends at the rate it writes, and the write rate is yours to bound.</p>
+
+<p>Tally: $15/M output against $3/M input = 5x per token; 4,000-in/200-out = $0.015 with output 20%; 4,000-in/1,200-out = $0.030 with output 60%; 5,000 calls/day with 8% long = $81 vs $75 = $6.00/day = $2,190/yr; 500-token cap = $76.80/day, saves $4.20/day = $1,533/yr = 70% of the overrun.</p>
+</main>
+</body>
+</html>
